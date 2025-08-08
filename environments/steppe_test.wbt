@@ -1,0 +1,221 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/Khepera1.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+
+WorldInfo {
+  info [
+    "'Steppe' environment for agentic simulation."
+  ]
+  title "Steppe"
+}
+Viewpoint {
+  orientation -0.012529484321960433 0.9999040666780489 -0.0059050371146787215 1.071474241302314
+  position -0.8602951108319687 0.022016823139581504 1.6159020806951376
+}
+TexturedBackground {
+}
+RectangleArena {
+  rotation 0 0 1 1.5708
+}
+DEF ROBOT Khepera1 {
+  hidden position_0_0 -1.0845137183792002
+  hidden position_0_1 0.234522095076259
+  hidden linearVelocity_0 -0.004703666597477963 0.0033973798553344967 0.00024975088949872356
+  hidden angularVelocity_0 0.010033164807533124 0.018813033070581967 -1.3477476120466787
+  hidden rotation_2 -0.4225757309983319 0.4225756666391929 -0.8017852315524819 1.7899354225860522
+  hidden linearVelocity_2 -0.003966079398525907 0.037261636965404216 1.4684316293007426e-05
+  hidden angularVelocity_2 -5.215356657280717 -0.5586080508497271 -1.3272407831368958
+  hidden rotation_3 -0.6681889042551337 0.66818888661439 -0.32718068408044126 2.5091869497211476
+  hidden linearVelocity_3 0.003265223700045853 -0.030377584781579266 7.520619979309789e-06
+  hidden angularVelocity_3 4.179399645974238 0.4658178776887815 -1.3517903652699972
+  translation 0.0010146318219020516 -0.006087171434963181 -9.702065592604586e-06
+  rotation 0.03498337690124044 -0.032638265768932626 0.9988547977299715 1.646461588776074
+  name "khepera1"
+  controller "forager_lstm_hyperprior"
+  supervisor TRUE
+  extensionSlot [
+    Camera {
+      translation -0.01 0 0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.70632 0.70632 0.70632
+            roughness 1
+            metalness 0
+          }
+          geometry DEF CAMERA Box {
+            size 0.03 0.03 0.02
+          }
+        }
+      ]
+      boundingObject DEF CAMERA Box {
+        size 0.03 0.03 0.02
+      }
+      physics Physics {
+        density -1
+        mass 0.02
+      }
+      width 128
+      height 128
+      near 0.07
+    }
+  ]
+}
+DEF GREEN_OBJECT_1 Solid {
+  translation -0.11465499315734151 -0.2621096945774693 0.049690821183413565
+  rotation 7.875590147992508e-05 -4.793703521013059e-05 -0.9999999957497743 0.01330875584573003
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_1"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+  linearVelocity 2.4955901347117884e-07 4.0392461059124946e-07 7.73812660138039e-06
+  angularVelocity -8.078369456077883e-06 4.991104427114364e-06 -6.371317619499374e-17
+}
+DEF GREEN_OBJECT_2 Solid {
+  translation 0.3642917803022435 0.06429763957323154 0.04969057110025438
+  rotation -0.785352031843384 0.5862510756792978 -0.19882621141171136 5.857718146451255e-17
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_2"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+  linearVelocity -6.264974031942333e-18 -4.298879366911034e-17 9.695661581251823e-06
+  angularVelocity 1.5595546796137718e-16 -6.798846161103458e-16 1.179738375996691e-16
+}
+DEF GREEN_OBJECT_3 Solid {
+  translation -0.350157083770035 0.004992602526189771 0.04969057110025438
+  rotation -0.5320336442061807 -0.11390808400208091 -0.8390263105717639 3.8658726308349746e-17
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_3"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+  linearVelocity -2.5584791224470053e-17 -2.46955788282576e-17 9.695661581252104e-06
+  angularVelocity 4.473652372189875e-16 -4.7919175999707e-16 5.220800562172903e-17
+}
+DEF GREEN_OBJECT_4 Solid {
+  translation -0.3982717090778161 0.1068332319107099 0.049691020654573016
+  rotation -7.932729213790295e-05 1.3780785530984036e-06 -0.9999999968526408 0.016371199796233558
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_4"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+  linearVelocity -1.2842901787452613e-08 -5.024318853895227e-07 6.176758574273466e-06
+  angularVelocity 1.0048485016409106e-05 -2.5685413244763005e-07 2.4490004703980984e-16
+}
+DEF RED_OBJECT_1 Solid {
+  translation -0.004454816996661827 -0.1425355652914937 0.04969057110025437
+  rotation -0.9282113619011182 -0.27836978042449045 -0.24684799570604637 1.4316863288854633e-16
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "red_object_1"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+  linearVelocity 1.5266882651915604e-17 5.149555810273813e-17 9.695661581297439e-06
+  angularVelocity -1.2888023559360942e-15 1.693405235055694e-16 1.0276885968274213e-17
+}
+DEF RED_OBJECT_2 Solid {
+  translation -0.36481427969720814 0.37082977101069026 0.04969057110025438
+  rotation 0.8350565660531049 -0.37542801354278954 0.4021620794392624 4.7153841869692024e-17
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "red_object_2"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+  linearVelocity -1.1001293385556534e-17 -6.656671706675726e-17 9.695661581226039e-06
+  angularVelocity 1.8920606122482036e-15 -2.895475944696572e-16 5.7880800251423e-17
+}

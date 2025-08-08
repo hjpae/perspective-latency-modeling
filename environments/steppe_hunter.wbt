@@ -1,0 +1,193 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/Khepera1.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+
+WorldInfo {
+  info [
+    "'Steppe' environment for agentic simulation."
+  ]
+  title "Steppe"
+}
+Viewpoint {
+  orientation -0.012529484321960433 0.9999040666780489 -0.0059050371146787215 1.071474241302314
+  position -0.8602951108319687 0.022016823139581504 1.6159020806951376
+}
+TexturedBackground {
+}
+RectangleArena {
+  rotation 0 0 1 1.5708
+}
+DEF ROBOT Khepera1 {
+  translation 0 0 0.01
+  rotation 0 0 1 1.5708
+  name "khepera1"
+  controller "hunter_perspective_drift_opt"
+  supervisor TRUE
+  extensionSlot [
+    Camera {
+      translation -0.01 0 0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.70632 0.70632 0.70632
+            roughness 1
+            metalness 0
+          }
+          geometry DEF CAMERA Box {
+            size 0.03 0.03 0.02
+          }
+        }
+      ]
+      boundingObject DEF CAMERA Box {
+        size 0.03 0.03 0.02
+      }
+      physics Physics {
+        density -1
+        mass 0.02
+      }
+      width 128
+      height 128
+      near 0.07
+    }
+  ]
+}
+DEF GREEN_OBJECT_1 Solid {
+  translation 0.5 0.5 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_1"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
+DEF GREEN_OBJECT_2 Solid {
+  translation 0.5 -0.5 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_2"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
+DEF GREEN_OBJECT_3 Solid {
+  translation -0.5 0.5 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "green_object_3"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
+DEF RED_OBJECT_1 Solid {
+  translation 1 1 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "red_object_1"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
+DEF RED_OBJECT_2 Solid {
+  translation 1 -1 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "red_object_2"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
+DEF RED_OBJECT_3 Solid {
+  translation -1 -1 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "red_object_3"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
