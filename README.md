@@ -168,3 +168,7 @@ Watch how agents with different perspectives behave differently in the same envi
 
 The demo GIF can be found at the top of this page. For additional demo videos, see the /assets/ folder.
 
+---
+
+## Development Status 
+This project is currently under active development. All core mechanisms are implemented and functional, and further experiments and visualizations (especially from Phase 2 and beyond) are ongoing. Stay tuned for the updates. 
