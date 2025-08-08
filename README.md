@@ -1,9 +1,14 @@
-# Simulating subjective inference by Perspective-conditioning 
+# Simulating Subjective Inference by Perspective Conditioning 
 
 <p align="center">
-  <img src="assets/steppe_hunter_test_g250_pes.gif" alt="Cautious Agent" width="45%" style="margin-right: 10px;"/>
-  <img src="assets/steppe_hunter_test_g250_opt.gif" alt="Bold Agent" width="45%"/>
+  <img src="assets/steppe_hunter_test_g250_pes.gif" width="300"/>
+  <img src="assets/steppe_hunter_test_gen250_opt.gif" width="300"/>
 </p>
+
+<p align="center">
+  <b>Agent A (Cautious)</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <b>Agent B (Bold)</b>
+</p>
+
 
 
 ## Overview
@@ -159,11 +164,7 @@ class Perspective:
 ### Behavior comparison of Phase 1
 Watch how agents with different perspectives behave differently in the same environment:
 - **Agent A (Cautious)** avoids red, favors green. 
-- **Agent B (Bold)** aggressively targets red despite penalties.
+- **Agent B (Bold)** aggressively targets red despite penalties.  
 
+The demo GIF can be found at the top of this page. For additional demo videos, see the /assets/ folder.
 
-(See `/media/` for full demo videos.)
-
-
-### Fitness graph of Phase 1 
-- Fitness comparison of Agent A vs Agent B during evolution. 
