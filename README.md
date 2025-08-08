@@ -9,6 +9,15 @@
   <b>Agent A (risk-averse): "forages" the green </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <b>Agent B (risk-taking): "hunts" the red </b>
 </p>
 
+## Table of Contents
+- [Overview](#overview)
+- [Core Idea](#core-idea)
+- [Simulation Idea](#simulation-idea)
+- [Simulation Setup](#simulation-setup)
+- [Perspective Architecture](#perspective-architecture)
+- [Interim Results](#interim-results)
+- [Development Status](#development-status)
+  - [Research Notes](#research-notes)
 
 ## Overview
 This project explores how artificial agents can modulate their behavior not solely based on objective environmental rewards, but through *subjective interpretive stance*, namely **perspective**. I model these perspectives as **latent variables** that **bias the agent's evaluation of reward structures**. Importantly, **perspectives are fluid**, and can change or drift in response to environmental circumstances. This idea provides a minimal computational foundation for simulating lifelong developmental change and world model adjustment through adaptive inference.
