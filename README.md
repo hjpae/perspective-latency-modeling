@@ -9,6 +9,12 @@
   <b>Agent A (risk-averse): "forages" the green </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <b>Agent B (risk-taking): "hunts" the red </b>
 </p>
 
+<p align="center"><i>
+  <b>Figure 1.</b> Side-by-side visual comparison of two agents with opposite initial perspectives.<br/>  
+  Agent A (risk-averse) consistently "forages" for green objects only and avoid "hunting" red objects, while Agent B (risk-taking) aggressively "hunts" red objects despite probabilistic penalties ("getting counterattacked").
+</i></p>
+
+
 ## Table of Contents
 - [Overview](#overview)
 - [Core Idea](#core-idea)
@@ -27,6 +33,50 @@ Most AI systems optimize reward directly and objectively. In contrast, this syst
 - Agents **do not perceive rewards directly**.
 - Instead, each agent holds a **latent structure *(perspective)*** that **biases** its internal evaluation of risk and reward.
 - This bias (`risk_bias`) **adapts over time** based on agentic interaction with the environment.
+
+```mermaid
+flowchart TD
+    %% === Nodes ===
+    S[Sensor Inputs]
+    P[Perspective Module]
+    F[Perspective conditioned Fitness Function]
+    E[Policy evolution via GEA]
+    B[Motor Outputs]
+    O[Behavior in Environment]
+    U[Perspective Update]
+
+    %% === Edges ===
+    S --> P
+    P -->|biases| F
+    F -->|shapes| E
+    E -->|determines| B
+    B --> O
+    O --> U
+    U -->|updates over time| P
+
+    %% === Color Styles ===
+    classDef sense fill:#f6d55c,stroke:#d4a017,stroke-width:2px,color:#000;
+    classDef persp fill:#f4a261,stroke:#e76f51,stroke-width:2px,color:#fff;
+    classDef fitness fill:#2a9d8f,stroke:#1e847f,stroke-width:2px,color:#fff;
+    classDef evo fill:#457b9d,stroke:#1d3557,stroke-width:2px,color:#fff;
+    classDef behavior fill:#264653,stroke:#0b2545,stroke-width:2px,color:#fff;
+    classDef update fill:#9b59b6,stroke:#5b2c6f,stroke-width:2px,color:#fff;
+
+    %% === Assign Classes ===
+    class S sense;
+    class P persp;
+    class F fitness;
+    class E evo;
+    class B behavior;
+    class O behavior;
+    class U update;
+```
+<p align="center"><i>
+  <b>Figure 2.</b> Flow of subjective inference loop.<br/>   
+  Perspective biases the evaluation of fitness, which drives policy evolution. In turn, outcomes affect how the perspective updates via surprisal minimization. 
+</i></p>
+
+
 
 ### Why This Matters 
 Much of AI behavior optimization operates under the assumption of an objective, externally defined reward structure. Yet real-world agents (especially humans) interpret and evaluate value through inherently **subjective interpretation**. Phenomenology—from the transcendental tradition to the embodiment paradigm—has long emphasized that all conscious mental processes, or cognitive acts, are already imbued with subjective interpretation of the world [(Pae 2025 preprint, under revision)](https://osf.io/preprints/psyarxiv/pzrx8_v1). This means we never encounter the world "as-is" in a purely objective sense; rather, we experience it through the interpretive lens of a situated subject. Subjectivity is inevitable for every conscious being.  
@@ -188,7 +238,7 @@ Watch how agents with different perspectives behave differently in the same envi
 - **Agent A (Cautious)** avoids red, favors green. 
 - **Agent B (Bold)** aggressively targets red despite penalties.  
 
-The demo GIF can be found at the top of this page. For additional demo videos, see the /assets/ folder.
+The demo GIF can be found at the top of this page (Fig.1). For additional demo videos, see the /assets/ folder.
 
 ---
 
