@@ -6,20 +6,33 @@
 </p>
 
 <p align="center">
-  <b>Agent A (Cautious)</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <b>Agent B (Bold)</b>
+  <b>Agent A (risk-averse): "forages" the green </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <b>Agent B (risk-taking): "hunts" the red </b>
 </p>
 
 
-
 ## Overview
-This project explores how artificial agents can modulate their behavior not solely based on objective environmental rewards, but through *subjective interpretive stance*, namely **perspective**.  
-I model these perspectives as latent variables that bias the agent's evaluation of reward structures. Importantly, perspectives are fluid, and can change or drift in response to environmental circumstances. This idea provides a minimal computational foundation for simulating lifelong developmental change and world model adjustment through adaptive inference.
+This project explores how artificial agents can modulate their behavior not solely based on objective environmental rewards, but through *subjective interpretive stance*, namely **perspective**. I model these perspectives as **latent variables** that **bias the agent's evaluation of reward structures**. Importantly, **perspectives are fluid**, and can change or drift in response to environmental circumstances. This idea provides a minimal computational foundation for simulating lifelong developmental change and world model adjustment through adaptive inference.
 
 ## Core Idea
 Most AI systems optimize reward directly and objectively. In contrast, this system shows:
 - Agents **do not perceive rewards directly**.
 - Instead, each agent holds a **latent structure *(perspective)*** that **biases** its internal evaluation of risk and reward.
 - This bias (`risk_bias`) **adapts over time** based on agentic interaction with the environment.
+
+### Why This Matters 
+Much of AI behavior optimization operates under the assumption of an objective, externally defined reward structure. Yet real-world agents (especially humans) interpret and evaluate value through inherently **subjective interpretation**. Phenomenology—from the transcendental tradition to the embodiment paradigm—has long emphasized that all conscious mental processes, or cognitive acts, are already imbued with subjective interpretation of the world [(Pae 2025 preprint, under revision)](https://osf.io/preprints/psyarxiv/pzrx8_v1). This means we never encounter the world "as-is" in a purely objective sense; rather, we experience it through the interpretive lens of a situated subject. Subjectivity is inevitable for every conscious being.  
+
+Such intuition is formalized in this project as a dynamic latent structure, namely, the **agent's "perspective"** - which modulates how observed outcomes are interpreted as success (under a bold/optimistic point of view) or failure (under a cautious/pessimistic point of view). This can be seen as the simplest and most primitive form of a **world model**, or even an **instantiation of a phenomenological artifact** *in silico*, in the sense that the agent is engaging in its own subjective interpretation of the world. 
+
+Importantly, this interpretive structure is not fixed. It evolves, drifts, and reorganizes in light of the agent's perspective-changing process, allowing the agent to refine not only its policies but the evaluative lens through which it interprets experience. In this sense, perspective drift offers a minimal scaffold for simulating **lifelong development**, **perspective-taking**, and **social alignment**.  
+
+By embedding subjective interpretation into the policy/behavior optimization process, this approach opens a new way to study:
+- How **qualitative stance** (e.g. boldness, cautiousness) emerges and changes, 
+- How agents might **misalign or realign** themselves - not due to objective shifts in reward but due to **subjective adaptation**,
+- and How we might simulate aspects of **first-person cognition** beyond standard policy learning.  
+
+Ultimately, this work builds a conceptual bridge between **developmental neuroscience** and **computational neurophenomenology**. It may also inform new paradigms in AI alignment research, particularly in those that seek agent alignment through world-interpreting process - i.e. not merely *what the agent does*, but *how it comes to see and feel* what it does. 
+
 
 ## Simulation Idea
 ### General environmental setup
@@ -84,7 +97,7 @@ This `risk_bias` directly modifies the **fitness evaluation** via a biased inter
     ```python
     error = observed_reward - expected_reward
     surprisal = -log2(P(observed_reward))
-    adjustment = learning_rate * sign(error) * tanh(surprisal) # lr * vector * magnitude
+    adjustment = sign(error) * tanh(surprisal) * learning_rate  # vector * magnitude * lr
     risk_bias += adjustment
     ```
 
@@ -172,3 +185,33 @@ The demo GIF can be found at the top of this page. For additional demo videos, s
 
 ## Development Status 
 This project is currently under active development. All core mechanisms are implemented and functional, and further experiments and visualizations (especially from Phase 2 and beyond) are ongoing. Stay tuned for the updates. 
+
+### Research Notes 
+- How appropriate is it to model perspective drift/update using Bayesian prediction error minimization as suggested by the active inference framework? When a human perceives a concept or entity, can we really say that their "shift in perspective" emerges solely from active inference? After all, perspective change resembles a developmental process, often involving qualitative shifts in self-interpretation. I suspect there's a more nuanced way to capture this.  
+  - Increasing the modality of the environment might be crucial, as richer sensorimotor dynamics allow for deeper embodiment and experiential grounding.
+  - One possible extension is to implement meta-level latent-latent processes that influence the evolution of perspective. Since metacognition is suggested to play a central role in [adult development](http://onesystemonevoice.com/resources/Cook-Greuter+9+levels+paper+new+1.1$2714+97p$5B1$5D.pdf), [learning](https://www.nature.com/articles/s41539-021-00089-5), and [world model building](https://arxiv.org/abs/2411.13537), refactoring the perspective model hierarchically may help simulate meta-level paradigm shifts in the world model.  
+- Improving the agent's internal architecture is also a key direction. While RNN/LSTM architectures have their own virtues due to their simplicity, they may be too limited to capture consciousness. Exploring architectures that could implement [SOHMs](https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2020.00030/full) (Self-Organizing Harmonic Modes) may offer a more appropriate framework.  
+- If one truly aims to model conscious-like phenomena, then pre-reflective self-acquaintance (the felt presence of the body prior to cognitive reflection) becomes essential. This inevitably ties to the simulation environment, which must be rich and sophisticated enough to support agents not as disembodied brains, but as embodied entities who can recognize their own givenness through embodied interaction.  
+- The idea of learning a world model in latent space bears structural resemblance to [Dreamer](https://github.com/google-research/dreamer). A comparative analysis between my model and Dreamer might yield valuable insights into both their similarities and foundational differences.
+
+### Hence, Future Directions:  
+1. Understanding Perspective Drift 
+   - Analyze how perspective drift unfolds over time by tracking its trajectory alongside fitness convergence in evolving agents.
+   - Move beyond simple prediction-error-based updates toward richer models of interpretive change.
+ 
+2. Meta-Structure & Hierarchical Perspective Modeling
+   - Introduce a meta-level layer that governs how perspectives themselves are interpreted and selected.
+   - Explore "latent-latent" architectures where perspective drift is modulated by higher-order inference.
+   - Consider modeling qualitative shifts (something like developmental stage transitions) as structural reconfigurations rather than mere parameter updates.
+
+3. Agent Architecture Redesign
+   - Investigate more expressive agent architectures beyond standard RNNs: consider biologically inspired models like [SOHMs](https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2020.00030/full) to support richer internal dynamics, synchrony, and emergent resonance.
+
+4. Environment & Embodiment
+   - Replace Webots with more modality-rich environments like [Common Grounds](https://commongrounds.ai/), [Metta-grid](https://github.com/Metta-AI/metta), or custom-built PettingZoo-based environments.
+   - Design agents with genuine bodily presence to enable pre-reflective self-acquaintance, which is a foundation for embodied consciousness.
+
+5. Comparative Analysis with Dreamer
+   - Compare and contrast this system with [Dreamer](https://github.com/google-research/dreamer), particularly:
+     - Both rely on latent dynamics ... while Dreamer models objective environmental dynamics vs. this project focuses on subjective evaluative structures. 
+   - Investigate how each framework deals with planning, representation, and self-modification.
